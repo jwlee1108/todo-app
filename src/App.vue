@@ -1,11 +1,15 @@
 <template>
-  <p>{{ message }}</p>
+  <ul>
+    <li>{{ todo.title }}</li>
+  </ul>
 </template>
 <script>
 export default {
   data() {
     return {
-      message: 'Hello Vue!'
+      todo: {
+        title: 'Learning Vue!'
+      }
     }
   }
 }
