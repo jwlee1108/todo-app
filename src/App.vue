@@ -6,7 +6,7 @@
     </div>
     <ul>
       <li v-for="(todo, index) in todos" :key="index"  @click="changeComplete(todo)">
-        <input type="checkbox" :checked="todo.complete"/>{{ todo.title }}
+        <input type="checkbox" v-model="todo.complete"/>{{ todo.title }}
       </li>
     </ul>
   </div>
