@@ -1,11 +1,14 @@
 <template>
-  <p>{{ message }}</p>
+  <div>
+    <input type="checkbox" v-model="checkFlag" />
+    <p>checkFlag: {{ checkFlag }}</p>
+  </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      message: 'Hello Vue!'
+      checkFlag: false
     }
   }
 }
