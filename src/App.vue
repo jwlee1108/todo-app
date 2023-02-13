@@ -5,7 +5,12 @@
       <button @click="addTodo">Add</button>
     </div>
     <ul>
-      <li v-for="(todo, index) in todos" :key="index"  @click="changeComplete(todo)">
+      <li
+          v-for="(todo, index) in todos"
+          :key="index"
+          @click="changeComplete(todo)"
+          :class="{completed: todo.complete}"
+      >
         <input type="checkbox" v-model="todo.complete"/>{{ todo.title }}
       </li>
     </ul>
@@ -37,5 +42,10 @@ export default {
 <style>
 li {
   user-select: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #ddd;
 }
 </style>
