@@ -1,5 +1,8 @@
 <template>
-  <p>{{ message }}</p>
+  <div>
+    <input v-model="message" type="text" />
+    <p>Text: {{ message }}</p>
+  </div>
 </template>
 <script>
 export default {
