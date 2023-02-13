@@ -1,11 +1,17 @@
 <template>
-  <p>{{ message }}</p>
+  <p>{{ sum }}</p>
 </template>
 <script>
 export default {
   data() {
     return {
-      message: 'Hello Vue!'
+      num1: 3,
+      num2: 4
+    }
+  },
+  computed: {
+    sum() {
+      return this.num1 + this.num2
     }
   }
 }
