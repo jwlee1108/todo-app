@@ -30,6 +30,19 @@ export default {
       filter: 'total'
     }
   },
+  watch: {
+    todos(newTodos) {
+      localStorage.setItem('todos', JSON.stringify(newTodos));
+      console.log('todos updated');
+    },
+    // todos: {
+    //   handler(newTodos) {
+    //     localStorage.setItem('todos', JSON.stringify(newTodos));
+    //     console.log('todos updated');
+    //   },
+    //   deep: true
+    // }
+  },
   computed: {
     totalCount() {
       return this.todos.length;
