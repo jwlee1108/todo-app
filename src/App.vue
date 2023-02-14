@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div>
+    <div class="counter-view">
+      <button>Total: {{ totalCount }}</button>
+      <button>Complete: {{ completeCount }}</button>
+      <button>Incomplete: {{ incompleteCount }}</button>
+    </div>
+    <div class="control-view">
       <input type="text" v-model="newTodo" @keyup.enter="addTodo" />
       <button @click="addTodo">Add</button>
     </div>
@@ -21,10 +26,18 @@ export default {
   data() {
     return {
       newTodo: '',
-      todos: [
-        { title: 'something to do', complete: true },
-        { title: 'what I have to do', complete: false },
-      ]
+      todos: []
+    }
+  },
+  computed: {
+    totalCount() {
+      return this.todos.length;
+    },
+    completeCount() {
+      return this.todos.filter(todo => todo.complete).length;
+    },
+    incompleteCount() {
+      return this.todos.filter(todo => !todo.complete).length;
     }
   },
   methods: {
