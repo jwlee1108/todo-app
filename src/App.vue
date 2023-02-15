@@ -14,6 +14,7 @@
         v-for="todo in filteredTodos"
         :key="todo.id"
         :todo="todo"
+        @todo-click="handleTodoClick"
       />
     </ul>
   </div>
@@ -72,7 +73,11 @@ export default {
     },
     setFilter(filter) {
       this.filter = filter;
-    }
+    },
+    handleTodoClick(todo) {
+      todo.complete = !todo.complete;
+      console.log(`todo: ${todo.title} is ${todo.complete ? 'complete' : 'incomplete'}`);
+    },
   }
 }
 </script>

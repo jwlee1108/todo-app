@@ -21,8 +21,7 @@ export default {
   },
   methods: {
     changeComplete(todo) {
-      todo.complete = !todo.complete;
-      console.log(`todo: ${todo.title} is ${todo.complete ? 'complete' : 'incomplete'}`);
+      this.$emit('todo-click', todo);
     },
   }
 }
