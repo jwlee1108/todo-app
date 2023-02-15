@@ -33,17 +33,17 @@ export default {
     }
   },
   watch: {
-    todos(newTodos) {
-      localStorage.setItem('todos', JSON.stringify(newTodos));
-      console.log('todos updated');
-    },
-    // todos: {
-    //   handler(newTodos) {
-    //     localStorage.setItem('todos', JSON.stringify(newTodos));
-    //     console.log('todos updated');
-    //   },
-    //   deep: true
-    // }
+    // todos(newTodos) {
+    //   localStorage.setItem('todos', JSON.stringify(newTodos));
+    //   console.log('todos updated');
+    // },
+    todos: {
+      handler(newTodos) {
+        localStorage.setItem('todos', JSON.stringify(newTodos));
+        console.log('todos updated');
+      },
+      deep: true
+    }
   },
   computed: {
     totalCount() {
@@ -65,6 +65,10 @@ export default {
           return this.todos.filter(todo => !todo.complete);
       }
     }
+  },
+  created() {
+    this.todos = JSON.parse(localStorage.getItem('todos')) || [];
+    console.log('get todos');
   },
   methods: {
     addTodo() {
