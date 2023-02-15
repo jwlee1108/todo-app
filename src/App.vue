@@ -1,12 +1,11 @@
 <template>
-  <p>{{ message }}</p>
+  <hello-world />
 </template>
 <script>
+import HelloWorld from '@/components/HelloWorld.vue';
 export default {
-  data() {
-    return {
-      message: 'Hello Vue!'
-    }
+  components: {
+    HelloWorld
   }
 }
 </script>
