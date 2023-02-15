@@ -10,19 +10,20 @@
       <button @click="addTodo">Add</button>
     </div>
     <ul>
-      <li
-          v-for="todo in filteredTodos"
-          :key="todo.id"
-          @click="changeComplete(todo)"
-          :class="{completed: todo.complete}"
-      >
-        <input type="checkbox" v-model="todo.complete"/>{{ todo.title }}
-      </li>
+      <todo-item
+        v-for="todo in filteredTodos"
+        :key="todo.id"
+        :todo="todo"
+      />
     </ul>
   </div>
 </template>
 <script>
+import TodoItem from '@/components/TodoItem.vue';
 export default {
+  components: {
+    TodoItem
+  },
   data() {
     return {
       newTodo: '',
@@ -65,10 +66,6 @@ export default {
     }
   },
   methods: {
-    changeComplete(todo) {
-      todo.complete = !todo.complete;
-      console.log(`todo: ${todo.title} is ${todo.complete ? 'complete' : 'incomplete'}`);
-    },
     addTodo() {
       this.todos.push({ title: this.newTodo, complete: false, id: +new Date() });
       this.newTodo = '';
@@ -82,10 +79,5 @@ export default {
 <style>
 li {
   user-select: none;
-}
-
-.completed {
-  text-decoration: line-through;
-  color: #ddd;
 }
 </style>
