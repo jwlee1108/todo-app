@@ -3,10 +3,8 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      message: 'Hello Vue!'
-    }
+  props: {
+    message: String
   }
 }
 </script>
