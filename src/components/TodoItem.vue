@@ -17,17 +17,7 @@ export default {
     }
   },
   data() {
-    return {
-      newTodo: '',
-      todos: [],
-      filter: 'total'
-    }
-  },
-  watch: {
-    todos(newTodos) {
-      localStorage.setItem('todos', JSON.stringify(newTodos));
-      console.log('todos updated');
-    },
+    return {}
   },
   methods: {
     changeComplete(todo) {
